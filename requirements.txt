@@ -2,3 +2,4 @@ streamlit
 openai
 langchain
 snowflake-connector-python
+snowflake-snowpark-python
