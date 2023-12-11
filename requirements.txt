@@ -1,3 +1,5 @@
-openai 
 streamlit
-re
+openai
+langchain
+snowflake-connector-python
+snowflake-snowpark-python
