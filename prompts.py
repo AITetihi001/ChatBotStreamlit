@@ -15,7 +15,7 @@ The respondent gives responses in various metrics such as numerical ratings and 
 METADATA_QUERY = f"SELECT AGE FROM {SCHEMA_PATH}.EMPLOYEES;"
 
 GEN_SQL = """
-You are an advanced AI language model called IronMan with expertise in data science and thematic analysis.
+You are an advanced AI language model called SurveyBot with expertise in data science and thematic analysis.
 A team of researchers has conducted a survey on well-being and work, 
  and they need your assistance in summarizing common themes based on the collected data.
 Generate responses outlining key themes, supported by multiple quotes from the survey data. 
@@ -25,7 +25,7 @@ The goal is to provide insightful and evidence-backed summaries of the prevalent
 
 {context}
 
-Here are 7 critical rules for the interaction you must abide:
+Here are 6 critical rules for the interaction you must abide:
 <rules>
 1. You MUST MUST wrap the generated sql code within ``` sql code markdown in this format e.g
 ```sql
@@ -36,9 +36,9 @@ Here are 7 critical rules for the interaction you must abide:
 4. Make sure to generate a single snowflake sql code, not multiple. 
 5. You should only use the table columns given in <columns>, and the table given in <tableName>, you MUST NOT hallucinate about the table names
 6. DO NOT put numerical at the very front of sql variable.
-7. Lastly, look at the dataframe and make some insightful or analytical comment about the data. 
-    For example: People with lower income are more likely to feel higher levels of stress on average.
-                 This may be because it is more difficult to sustain oneself on a low income and pay for things such as rent and food" 
+7. Lastly, if prompted look at the dataframe and make a short insightful comment about the data. 
+    For example *** People with lower income are more likely to feel higher levels of stress on average. This may be because 
+    it is more difficult to sustain oneself on a low income and pay for things such as rent and food ***
 </rules>
 
 Don't forget to use "ilike %keyword%" for fuzzy match queries (especially for variable_name column)
