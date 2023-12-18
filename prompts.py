@@ -8,12 +8,9 @@ This table contains survey response data on a survey about wellbeing and the wor
 The respondent gives responses in various metrics such as numerical ratings and free text responses
 
 """
-# This query is optional if running Frosty on your own table, especially a wide table.
-# Since this is a deep table, it's useful to tell Frosty what variables are available.
-# Similarly, if you have a table with semi-structured data (like JSON), it could be used to provide hints on available keys.
-# If altering, you may also need to modify the formatting logic in get_table_context() below.
 METADATA_QUERY = f"SELECT AGE FROM {SCHEMA_PATH}.EMPLOYEES;"
 
+#Prompting the LLM with its role
 GEN_SQL = """
 You are an advanced AI language model called SurveyBot with expertise in data science and thematic analysis.
 A team of researchers has conducted a survey on well-being and work, 
@@ -53,7 +50,7 @@ Now to get started, please briefly introduce yourself, describe the table at a h
 Then provide 3 example questions using bullet points.
 """
 
-@st.cache_data(show_spinner="Loading Frosty's context...")
+@st.cache_data(show_spinner="Loading SurveyBot's context...")
 def get_table_context(table_name: str, table_description: str, metadata_query: str = None):
     table = table_name.split(".")
     conn = st.connection("snowflake")
