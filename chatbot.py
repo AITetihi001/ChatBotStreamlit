@@ -29,6 +29,7 @@ for message in st.session_state.messages:
 # If last message is not from assistant, we need to generate a new response
 if st.session_state.messages[-1]["role"] != "assistant":
     with st.chat_message("assistant"):
+        #Code for generating response from GPT-3.5-turbo 
         response = ""
         resp_container = st.empty()
         for delta in client.chat.completions.create(
@@ -47,4 +48,5 @@ if st.session_state.messages[-1]["role"] != "assistant":
             conn = st.connection("snowflake")
             message["results"] = conn.query(sql)
             st.dataframe(message["results"])
+        #-----
         st.session_state.messages.append(message)
